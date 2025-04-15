@@ -5,7 +5,6 @@
             class="w-32 h-32 rounded-full border-2 border-cyan-400" />
         <h2 class="mt-2 font-semibold text-sm text-center">chan Waturandang</h2>
     </div>
-
     <nav class="mt-4 space-y-2 text-sm">
         <a href="{{ route('admin.dashboard') }}" class="block px-3 py-2 rounded-lg hover:bg-cyan-600 transition"><i
                 class="fa fa-home mr-2"></i>Dashboard</a>
