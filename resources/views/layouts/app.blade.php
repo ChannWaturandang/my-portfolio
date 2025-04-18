@@ -6,15 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ request() }}</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
     <!-- Font Awesome (untuk ikon seperti fa-check, fa-plus, fa-rotate-right) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-...your-integrity..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+        <!-- Swiper CSS (di dalam <head>) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+
     <!-- Alpine.js (untuk x-data, x-show, dan interaktivitas ringan) -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
 
     <!-- AOS (Animate On Scroll) -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -41,7 +49,7 @@
         <video id="loadingVideo" src="images/loading1.webm" autoplay muted playsinline
             class="w-full h-full object-cover" onended="hideLoading()"></video>
 
-            <div class="absolute bottom-0 right-0 w-60 h-10 bg-white/100 z-10"></div>
+        <div class="absolute bottom-0 right-0 w-60 h-10 bg-white/100 z-10"></div>
 
     </div>
 

@@ -1,4 +1,4 @@
-<header class="lg:w-1/5">
+<aside class="lg:w-1/5">
     <div class="sticky top-0 z-10 flex flex-col transition-all duration-300 lg:py-8">
         <div
             class="fixed z-20 w-full bg-neutral-50 p-5 shadow-sm dark:border-b dark:border-neutral-800 dark:bg-neutral-900 lg:relative lg:border-none lg:!bg-transparent lg:p-0 xl:shadow-none">
@@ -326,4 +326,4 @@
             </div>
         </div>
     </div>
-</header>
+</aside>

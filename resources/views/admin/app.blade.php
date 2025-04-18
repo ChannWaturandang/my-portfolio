@@ -5,10 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ $title }}</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -65,6 +68,7 @@
 </head>
 
 <body>
+
     <div x-data="{
         darkMode: false,
         init() {
@@ -89,73 +93,37 @@
         applyMode() {
             document.documentElement.classList.toggle('dark', this.darkMode);
         }
-    }" x-init="init()" class="relative">
+    }" x-init="init()">
 
-
-        @include('admin.components.navbar-admin')
-
-        <!-- Sidebar + Content Wrapper -->
-        <div class="flex pt-20 mt-10"> <!-- pt-20 to make room for navbar -->
-
+        <div class="antialiased bg-gray-50 dark:bg-gray-900">
+            @include('admin.components.navbar-admin')
             @include('admin.components.sidebar-admin')
 
-            @yield('contents-admin')
-
+            <main class="p-6 md:ml-64 pt-20 min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+                <div class="animate-fade-in-up">
+                    @yield('contents-admin')
+                </div>
+            </main>
         </div>
 
-        <script>
-            document.querySelectorAll('.count-up').forEach(counter => {
-                const updateCount = () => {
-                    const target = +counter.getAttribute('data-target');
-                    const count = +counter.innerText;
-                    const increment = target / 200;
-
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + increment);
-                        setTimeout(updateCount, 10);
-                    } else {
-                        counter.innerText = target;
-                    }
-                };
-                updateCount();
-            });
-
-            const progressCircle = document.querySelector('.progress-ring');
-            const radius = progressCircle.r.baseVal.value;
-            const circumference = radius * 2 * Math.PI;
-            const targetPercent = 4378 / 5000 * 100; // assume max 5000 visitors
-
-            progressCircle.style.strokeDasharray = `${circumference}`;
-            progressCircle.style.strokeDashoffset = `${circumference}`;
-
-            function setProgress(percent) {
-                const offset = circumference - (percent / 100) * circumference;
-                progressCircle.style.strokeDashoffset = offset;
-            }
-
-            let progress = 0;
-            const progressInterval = setInterval(() => {
-                if (progress < targetPercent) {
-                    progress += 1;
-                    setProgress(progress);
-                } else {
-                    clearInterval(progressInterval);
-                }
-            }, 20);
-        </script>
-
-        <!-- JS Clock -->
-        <script>
-            function updateTime() {
-                const now = new Date();
-                const timeString = now.toLocaleTimeString();
-                document.getElementById('currentTime').textContent = timeString;
-            }
-            setInterval(updateTime, 1000);
-            updateTime();
-        </script>
-
     </div>
+
+    <script>
+        document.querySelectorAll('.count-up').forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / 200;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 10);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
 </body>
 
 </html>

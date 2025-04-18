@@ -6,18 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+
+
     public function up(): void
     {
         Schema::create('careers', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->text('requirements');
+            $table->string('position');
+            $table->enum('typeofwork', ['Fulltime', 'Part-time', 'Self-employee', 'Freelance', 'contract', 'Internship']);
+            $table->string('current_job');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->string('location');
+            $table->enum('location_type', ['On site', 'Combined', 'Long distance']);
             $table->enum('employment_type', ['full-time', 'part-time', 'internship']);
+            $table->text('description');
             $table->timestamp('posted_at')->nullable();
             $table->timestamps();
         });

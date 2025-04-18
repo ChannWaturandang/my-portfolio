@@ -17,12 +17,16 @@ class CareerFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->jobTitle,
-            'description' => $this->faker->paragraph(3),
-            'requirements' => $this->faker->paragraph(2),
-            'location' => $this->faker->city,
+            'position' => $this->faker->jobTitle,
+            'typeofwork' => $this->faker->randomElement(['Fulltime', 'Part-time', 'Self-employee', 'Freelance', 'contract', 'Internship']),
+            'current_job' => $this->faker->company,
+            'start_date' => $this->faker->date(),
+            'end_date' => $this->faker->date(),
+            'location' => 'https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json',  // URL default
+            'location_type' => $this->faker->randomElement(['On site', 'Combined', 'Long distance']),
             'employment_type' => $this->faker->randomElement(['full-time', 'part-time', 'internship']),
-            'posted_at' => now(),
+            'description' => $this->faker->paragraph,
+            'posted_at' => $this->faker->optional()->dateTimeThisYear(), // Nullable timestamp
         ];
     }
 }
