@@ -25,6 +25,7 @@ class AchievementsController extends Controller
 
         return view('contents.achievements', [
             'achievements' => $achievements->get(),
+            'title' => 'Achievements',
         ]);
     }
 

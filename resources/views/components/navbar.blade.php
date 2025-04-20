@@ -1,7 +1,7 @@
-<aside class="lg:w-1/5">
+<aside class="lg:w-1/5" >
     <div class="sticky top-0 z-10 flex flex-col transition-all duration-300 lg:py-8">
         <div
-            class="fixed z-20 w-full bg-neutral-50 p-5 shadow-sm dark:border-b dark:border-neutral-800 dark:bg-neutral-900 lg:relative lg:border-none lg:!bg-transparent lg:p-0 xl:shadow-none">
+        class="fixed z-20 w-full bg-neutral-50 p-5 shadow-sm dark:border-b dark:border-neutral-800 dark:bg-neutral-900 lg:relative lg:border-none lg:!bg-transparent lg:p-0 xl:shadow-none">
             <div class="flex items-start justify-between md:px-2 lg:flex-col lg:space-y-4">
                 <div class="flex w-full flex-grow items-center gap-4 lg:flex-col lg:items-start lg:gap-0.5">
                     <div
@@ -35,16 +35,16 @@
                     <div class="hidden w-full items-center justify-between lg:mt-2 lg:flex gap-2">
 
                         <a href="mailto:chanwaturandang22@gmail.com"
-                            class=" hover:transition-3d-hover group relative flex h-10 w-48 cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-neutral-700 px-4 transition-all duration-700">
+                            class=" hover:transition-3d-hover hover:scale-x-90 -500 group relative flex h-10 w-48 cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-neutral-700 px-4 transition-all duration-700">
                             <!-- Titik hijau -->
                             <div
-                                class="z-10 h-2 w-2 rounded-full bg-green-400 animate-[grow-shrink_0.5s_ease-in-out_infinite]">
+                                class="z-10 h-2 w-2 rounded-full animate-pulse bg-green-400 dark:bg-green-400/50 dark:group-hover:text-center">
                             </div>
 
 
                             <!-- Text -->
                             <span
-                                class="z-10 ml-1 text-md font-thin text-neutral-600 transition-all duration-500 group-hover:text-white group-hover:text-lg group-hover:font-medium group-hover:ml-0 group-hover:mx-auto">Hire
+                                class="z-10 text-sm font-thin group-hover:text-neutral-100 text-neutral-600 dark:group-hover:text-neutral-600 dark:group-hover:font-bold group-hover:font-bold dark:text-neutral-400">Hire
                                 me.</span>
 
                             <!-- Ledakan hijau -->
@@ -61,8 +61,25 @@
                                     <option value="id">🇮🇩</option>
                                 </select>
                             </button>
-                            <button
-                                class="rounded-xl bg-neutral-100 p-2 transition-all duration-300 hover:bg-neutral-200 dark:bg-neutral-800 hover:dark:bg-neutral-700"><svg
+
+                            <!-- Tombol Dark Mode dengan Icon -->
+                            <button @click="toggleDarkMode"
+                                class="px-3 py-2 rounded-full text-dark dark:text-white transition group scale-125"
+                                title="Toggle Dark Mode">
+                                <template x-if="!darkMode">
+                                    <i class="fas fa-moon group-hover:animate-[spin_5s_linear_infinite] group-hover:text-yellow-400
+                   group-hover:drop-shadow-[0_0_10px_rgba(253,224,71,0.7)]
+                   transition duration-300 ease-in-out "></i>
+                                </template>
+                                <template x-if="darkMode">
+                                    <i class="fas fa-sun group-hover:animate-[spin_5s_linear_infinite] group-hover:text-yellow-400
+                   group-hover:drop-shadow-[0_0_10px_rgba(253,224,71,0.7)]
+                   transition duration-300 ease-in-out"></i>
+                                </template>
+                            </button>
+
+                            {{-- <button
+                                class="rounded-xl bg-neutral-100 p-2 transition-all duration-300 hover:bg-neutral-200 dark:bg-neutral-800 hover:dark:bg-neutral-700 dark:text-neutral-100"><svg
                                     stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16"
                                     height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -72,7 +89,7 @@
                                         d="M11.286 1.778a.5.5 0 0 0-.565-.755 4.595 4.595 0 0 0-3.18 5.003 5.46 5.46 0 0 1 1.055.209A3.603 3.603 0 0 1 9.83 2.617a4.593 4.593 0 0 0 4.31 5.744 3.576 3.576 0 0 1-2.241.634c.162.317.295.652.394 1a4.59 4.59 0 0 0 3.624-2.04.5.5 0 0 0-.565-.755 3.593 3.593 0 0 1-4.065-5.422z">
                                     </path>
                                 </svg>
-                            </button>
+                            </button> --}}
                         </div>
                     </div>
                 </div>
@@ -84,12 +101,9 @@
             <div class="hidden lg:block">
                 <nav class="flex flex-col gap-y-1"><a aria-current="page" target="" href="/">
                         <a href="/home">
-                            <div
-                                class="{{ request()->is('home') ? 'bg-neutral-200' : 'bg-white dark:bg-black' }} flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group dark:bg-neutral-800 text-neutral-900 dark:!text-neutral-200 lg:hover:scale-105 lg:transition-all lg:duration-300">
-
-
+                            <div class="{{ request()->is('home') ? 'bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-100' : 'bg-white dark:bg-[#121212]' }} flex items-center gap-2 py-2 px-4 dark:hover:text-white dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group text-neutral-900 lg:hover:scale-105 lg:transition-all lg:duration-300">
                                 <div
-                                    class="transition-all duration-300 group-hover:-rotate-12 {{ request()->is('home') ? 'animate-pulse' : '' }}">
+                                    class="transition-all group-hover:-rotate-12 {{ request()->is('home') ? 'animate-pulse' : '' }}">
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
                                         height="20" width="20" xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -104,7 +118,7 @@
                                 <div class="flex-grow">Home</div>
                                 @if (request()->is('home'))
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16"
-                                        class="animate-pulse text-gray-500" height="22" width="22"
+                                        class="animate-pulse text-gray-500 dark:text-neutral-100" height="22" width="22"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
                                             d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
@@ -118,10 +132,10 @@
                         <a href="{{ route('about.index') }}">
 
                             <div
-                                class="{{ request()->is('about') ? 'bg-neutral-200' : 'bg-white dark:bg-black' }} flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300 ">
+                                class="{{ request()->is('about') ? 'bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-100' : 'bg-white dark:bg-[#121212]' }} flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-100 rounded-lg group hover:dark:lg:bg-neutral-800 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300 ">
 
                                 <div
-                                    class="transition-all duration-300 group-hover:-rotate-12 {{ request()->is('about') ? 'animate-pulse' : '' }}">
+                                    class="transition-all group-hover:-rotate-12 {{ request()->is('about') ? 'animate-pulse' : '' }}">
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"
                                         height="20" width="20" xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -134,7 +148,7 @@
 
                                 @if (request()->is('about'))
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16"
-                                        class="animate-pulse text-gray-500" height="22" width="22"
+                                        class="animate-pulse text-gray-500 dark:text-neutral-100" height="22" width="22"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
                                             d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
@@ -147,10 +161,10 @@
                         </a>
                         <a href="{{ route('achievements.index') }}">
                             <div
-                                class="{{ request()->is('achievements*') ? 'bg-neutral-200' : 'bg-white dark:bg-black' }} flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300 ">
+                                class="{{ request()->is('achievements*') ? 'bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-100' : 'bg-white dark:bg-[#121212]' }} flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300 ">
 
                                 <div
-                                    class="transition-all duration-300 group-hover:-rotate-12 {{ request()->is('achievements*') ? 'animate-pulse' : '' }}">
+                                    class="transition-all group-hover:-rotate-12 {{ request()->is('achievements*') ? 'animate-pulse' : '' }}">
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0"
                                         viewBox="0 0 256 256" height="20" width="20"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -164,7 +178,7 @@
 
                                 @if (request()->is('achievements'))
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0"
-                                        viewBox="0 0 16 16" class="animate-pulse text-gray-500" height="22"
+                                        viewBox="0 0 16 16" class="animate-pulse text-gray-500 dark:text-neutral-100" height="22"
                                         width="22" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
                                             d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
@@ -176,9 +190,9 @@
                         </a>
                         <a target="" href="/projects">
                             <div
-                                class="{{ request()->is('projects*') ? 'bg-neutral-200' : 'bg-white dark:bg-black' }} flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300 ">
+                                class="{{ request()->is('projects*') ? 'bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-100' : 'bg-white dark:bg-[#121212]' }} flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300 ">
                                 <div
-                                    class="transition-all duration-300 group-hover:-rotate-12 {{ request()->is('projects*') ? 'animate-pulse' : '' }}">
+                                    class="transition-all group-hover:-rotate-12 {{ request()->is('projects*') ? 'animate-pulse' : '' }}">
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0"
                                         viewBox="0 0 24 24" height="20" width="20"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -190,7 +204,7 @@
                                 <div class="flex-grow">Projects</div>
                                 @if (request()->is('projects'))
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0"
-                                        viewBox="0 0 16 16" class="animate-pulse text-gray-500" height="22"
+                                        viewBox="0 0 16 16" class="animate-pulse text-gray-500 dark:text-neutral-100" height="22"
                                         width="22" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
                                             d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
@@ -202,10 +216,10 @@
                         </a>
                         <a target="" href="/dashboard">
                             <div
-                                class="{{ request()->is('dashboard*') ? 'bg-neutral-200' : 'bg-white dark:bg-black' }} flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300 ">
+                                class="{{ request()->is('dashboard*') ? 'bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-100' : 'bg-white dark:bg-[#121212]' }} flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300 ">
 
                                 <div
-                                    class="transition-all duration-300 group-hover:-rotate-12 {{ request()->is('dashboard*') ? 'animate-pulse' : '' }}">
+                                    class="transition-all group-hover:-rotate-12 {{ request()->is('dashboard*') ? 'animate-pulse' : '' }}">
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0"
                                         viewBox="0 0 24 24" height="20" width="20"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -219,7 +233,7 @@
 
                                 @if (request()->is('dashboard'))
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0"
-                                        viewBox="0 0 16 16" class="animate-pulse text-gray-500" height="22"
+                                        viewBox="0 0 16 16" class="animate-pulse text-gray-500 dark:text-neutral-100" height="22"
                                         width="22" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
                                             d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
@@ -231,10 +245,10 @@
                         </a>
                         <a target="" href="/chat">
                             <div
-                                class="{{ request()->is('chat*') ? 'bg-neutral-200' : 'bg-white dark:bg-black' }} flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300">
+                                class="{{ request()->is('chat*') ? 'bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-100' : 'bg-white dark:bg-[#121212]' }} flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300">
 
                                 <div
-                                    class="transition-all duration-300 group-hover:-rotate-12 {{ request()->is('chat') ? 'animate-pulse' : '' }}">
+                                    class="transition-all group-hover:-rotate-12 {{ request()->is('chat') ? 'animate-pulse' : '' }}">
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0"
                                         viewBox="0 0 256 256" height="20" width="20"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -248,7 +262,7 @@
 
                                 @if (request()->is('chatroom'))
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0"
-                                        viewBox="0 0 16 16" class="animate-pulse text-gray-500" height="22"
+                                        viewBox="0 0 16 16" class="animate-pulse text-gray-500 dark:text-neutral-100" height="22"
                                         width="22" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
                                             d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
@@ -260,10 +274,10 @@
                         </a>
                         <a target="" href="/contact">
                             <div
-                                class="{{ request()->is('contact*') ? 'bg-neutral-200' : 'bg-white dark:bg-black' }} flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300 ">
+                                class="{{ request()->is('contact*') ? 'bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-100' : 'bg-white dark:bg-[#121212]' }} flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300 ">
 
                                 <div
-                                    class="transition-all duration-300 group-hover:-rotate-12 {{ request()->is('contact*') ? 'animate-pulse' : '' }}">
+                                    class="transition-all group-hover:-rotate-12 {{ request()->is('contact*') ? 'animate-pulse' : '' }}">
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0"
                                         viewBox="0 0 24 24" height="20" width="20"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -278,7 +292,7 @@
 
                                 @if (request()->is('contact'))
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0"
-                                        viewBox="0 0 16 16" class="animate-pulse text-gray-500" height="22"
+                                        viewBox="0 0 16 16" class="animate-pulse text-gray-500 dark:text-neutral-100" height="22"
                                         width="22" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
                                             d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
@@ -290,11 +304,12 @@
                         </a>
                         <a href="/login">
                             <div
-                                class="{{ request()->is('login') ? 'bg-neutral-200' : 'bg-white dark:bg-black' }} flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300 ">
+                                class="{{ request()->is('login') ? 'bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-100' : 'bg-white dark:bg-[#121212]' }} flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300 ">
 
-                                <div class="transition-all duration-300 group-hover:-rotate-12">
+                                <div class="transition-all group-hover:-rotate-12">
                                     <!-- Admin Icon (Shield + Person) -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"
+                                        fill="currentColor">
                                         <path d="M12 2L4 5v6c0 5.25 3.75 10 8 11 4.25-1 8-5.75 8-11V5l-8-3zM12 12c-1.1 0-2-.9-2-2s.9-2
                                         2-2 2 .9 2 2-.9 2-2 2zm0 6.2c-1.8 0-3.4-.9-4.4-2.3.02-1.45 2.9-2.2 4.4-2.2s4.38.75 4.4
                                         2.2c-1 1.4-2.6 2.3-4.4 2.3z" />
@@ -305,7 +320,7 @@
 
                                 @if (request()->is('contact'))
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0"
-                                        viewBox="0 0 16 16" class="animate-pulse text-gray-500" height="22"
+                                        viewBox="0 0 16 16" class="animate-pulse text-gray-500 dark:text-neutral-100" height="22"
                                         width="22" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
                                             d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">

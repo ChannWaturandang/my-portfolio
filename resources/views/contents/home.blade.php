@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    {{-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> --}}
 
-    <section class="space-y-6 p-6">
+    <section class="space-y-6 p-6" data-aos="fade-right" data-aos-delay="100">
         <h1 class="text-4xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
             Hi, I'm Chan Waturandang
         </h1>
@@ -21,7 +21,7 @@
     <div class="border-t border-neutral-300 dark:border-neutral-700 my-8"></div>
 
     <!-- Skills -->
-    <section class="p-6">
+    <section class="p-6" data-aos="fade-left" data-aos-delay="200">
         <div class="text-xl font-semibold text-neutral-800 dark:text-neutral-300 flex items-center gap-2 mb-2">
             <i class="fas fa-tools"></i>
             <span>Skills</span>
@@ -54,7 +54,7 @@
         </div>
 
         <!-- Bottom Row - Scroll Right -->
-        <div class="relative overflow-hidden w-full bg-white dark:bg-gray-800 py-3">
+        <div class="relative overflow-hidden w-full bg-white dark:bg-gray-800 py-3" data-aos="fade-left" data-aos-delay="300">
             <div class="marquee-track-right flex gap-6">
                 @for ($i = 0; $i < 2; $i++)
                     @foreach ([
@@ -82,16 +82,14 @@
     <div class="border-t border-neutral-300 dark:border-neutral-700 my-8"></div>
 
     <!-- Contact -->
-    <section class="text-center mb-20">
+    <section class="text-center mb-20" data-aos="fade-up" data-aos-delay="400">
         <h2 class="text-2xl font-bold mb-4 text-neutral-800 dark:text-white">📬 Let's work together!</h2>
         <a href="mailto:chan@example.com" class="inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition">
             Contact Me
         </a>
     </section>
 
-    <!-- AOS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init();</script>
+    
 
     <!-- Custom Marquee Style -->
     <style>

@@ -17,7 +17,8 @@ class AboutController extends Controller
         return view('contents.about', [
             'careers' => $careers,
             'paragraphs' => $paragraphs,
-            'educations' => $educations
+            'educations' => $educations,
+            'title' => 'About'
         ]);
     }
 

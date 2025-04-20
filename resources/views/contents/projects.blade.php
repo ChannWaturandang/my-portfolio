@@ -2,18 +2,27 @@
 
 @section('content')
 
-    <div class="mt-20 p-8 lg:mt-0 aos-init aos-animate">
-        <h1 class="text-2xl font-medium">Projects</h1>
-        <p class="mb-6 border-b border-dashed  border-neutral-600 pb-6 pt-2 text-neutral-600 dark:text-neutral-400">List
-            of all my projects.</p>
+    <div class="mt-20 p-8 lg:mt-0">
+        <div data-aos="fade-right" data-aos-delay="100">
+            <h1 class="text-2xl font-medium">Projects</h1>
+            <p class="mb-6 border-b border-dashed  border-neutral-600 pb-6 pt-2 text-neutral-600 dark:text-neutral-400">List
+                of all my projects.
+            </p>
+        </div>
+
         <section class="grid grid-cols-1 gap-6 md:grid-cols-2">
+
             @forelse ($projects as $project)
-                <div style="opacity: 1; will-change: auto; transform: none;">
+                <div data-aos="zoom-in" data-aos-delay="100">
+
                     <a href="/projects/satriabahari-site">
+
                         <div class="rounded-xl w-full border-[1.5px] border-neutral-300 p-1 shadow-sm dark:border-[#333333]">
+                            {{-- Deskripsi atas --}}
                             <div
                                 class="rounded-lg bg-gradient-to-b from-neutral-200 to-neutral-100 transition-all duration-300 hover:to-[#ffffff] dark:from-[#242424] dark:to-neutral-900 dark:hover:to-neutral-950 group relative cursor-pointer">
                                 @if ($project->featured == true)
+                                    {{-- featured --}}
                                     <div
                                         class="absolute right-0 top-0 z-10 flex items-center gap-x-1 rounded-bl-lg rounded-tr-lg bg-cyan-500 px-2 py-1 text-sm font-medium text-neutral-900">
                                         <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
@@ -28,11 +37,14 @@
                                         <span>Featured</span>
                                     </div>
                                 @else
-                                    <div class="relative">
+                                    {{-- image --}}
+                                    <div class="relative aspect-video w-full overflow-hidden rounded-t-xl">
                                         <img alt="satriabahari.site" fetchpriority="high" width="450" height="200"
                                             decoding="async" data-nimg="1"
                                             class="h-full w-full rounded-t-xl object-cover md:w-auto"
                                             src="{{ asset('images/' . $project->image) }}" style="color: transparent;">
+
+                                        {{-- efek hover --}}
                                         <div
                                             class="absolute left-0 top-0 flex h-full w-full items-center justify-center gap-1 rounded-t-xl bg-black text-sm font-medium text-neutral-50 opacity-0 transition-opacity duration-300 group-hover:opacity-80">
                                             <span>View Project</span>
@@ -40,24 +52,26 @@
                                                 aria-hidden="true" height="20" width="20"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                                    d="M13 7l5 5m0 0l-5 5m5-5H6">
+                                                </path>
                                             </svg>
                                         </div>
                                     </div>
                                 @endif
 
-
-                                <div class="space-y-2 p-5">
+                                {{-- Deskirpsi bawah --}}
+                                <div class="space-y-2 p-5 decoration-none">
 
                                     <div>
                                         {{-- title --}}
                                         <h3
-                                            class="cursor-pointer text-lg text-neutral-700 transition-all duration-300 group-hover:text-teal-500 dark:text-neutral-300 dark:group-hover:text-teal-400">
+                                            class="decoration-none cursor-pointer text-lg text-neutral-700 transition-all duration-300 group-hover:text-teal-500 dark:text-neutral-300 dark:group-hover:text-teal-400">
                                             {{ $project->title }}
                                         </h3>
 
                                         {{-- description --}}
-                                        <p class="text-sm leading-relaxed text-neutral-700 dark:text-neutral-400">
+                                        <p
+                                            class="decoration-none text-sm leading-relaxed text-neutral-700 dark:text-neutral-400">
                                             {{ Str::limit($project->description, 70) }}
                                         </p>
 
@@ -88,8 +102,9 @@
                         </div>
                     </a>
                 </div>
+
             @empty
-                <p>No projects available.</p>
+                <p class="text-neutral-500">Belum ada project yang ditambahkan. Stay tuned!</p>
             @endforelse
         </section>
     </div>

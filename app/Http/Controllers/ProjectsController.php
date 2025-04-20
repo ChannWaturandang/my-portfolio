@@ -18,7 +18,8 @@ class ProjectsController
 
         return view('contents.projects', [
             'logos' => $logos,
-            'projects' => $projects
+            'projects' => $projects,
+            'title' => 'Projects'
 
         ]);
     }

@@ -13,7 +13,7 @@ use App\Http\Controllers\AchievementsController;
 Route::redirect('/', '/home');
 
 Route::get('/home', function () {
-    return view('contents.home');
+    return view('contents.home', ['title' => 'Home']);
 })->name('contents.home');
 
 Route::fallback(function () {

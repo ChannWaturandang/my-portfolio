@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="mt-20 p-8 lg:mt-0 aos-init aos-animate" data-aos="fade-up">
+    <div class="mt-20 p-8 lg:mt-0" data-aos="flip-right" data-aos-delay="100">
         <h1 class="text-2xl font-medium">About</h1>
         <p class="mb-6 border-b border-dashed  border-neutral-600 pb-6 pt-2 text-neutral-600 dark:text-neutral-400">A short
             story of me</p>

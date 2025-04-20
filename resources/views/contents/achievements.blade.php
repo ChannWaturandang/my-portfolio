@@ -1,13 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="mt-20 p-8 lg:mt-0 aos-init aos-animate" data-aos="fade-up">
-        <h1 class="text-2xl font-medium">Achievements</h1>
-        <p class="mb-6 border-b border-dashed  border-neutral-600 pb-6 pt-2 text-neutral-600 dark:text-neutral-400">A
-            collection of certificates and badges that I have earned throughout my professional journey.</p>
+    <div class="mt-20 p-8 lg:mt-0">
+        <div data-aos="fade-up">
+            <h1 class="text-2xl font-medium">Achievements</h1>
+            <p class="mb-6 border-b border-dashed  border-neutral-600 pb-6 pt-2 text-neutral-600 dark:text-neutral-400">A
+                collection of certificates and badges that I have earned throughout my professional journey.</p>
+        </div>
+
         <section class="space-y-4">
             <div class="flex flex-col space-y-4">
-                <div class="flex w-full flex-col items-center justify-between space-y-4 md:flex-row">
+                <div class="flex w-full flex-col items-center justify-between space-y-4 md:flex-row" data-aos="fade-down">
                     <div class="flex flex-col gap-4 md:flex-row md:items-center justify-between w-full">
                         <!-- Search Form -->
                         <div
@@ -37,7 +40,6 @@
                             </form>
                         </div>
 
-                        <!-- Filter Button -->
                         <!-- Filter Button -->
                         <div x-data="{ open: false }" class="relative md:w-[230px] w-full">
                             <button @click="open = !open"
@@ -71,21 +73,20 @@
                         </div>
 
                     </div>
-
-
                 </div>
-                <div class="ml-1 text-sm text-neutral-500 dark:text-neutral-400">Total: {{ $achievements->count() }}</div>
+
+                <div class="ml-1 text-sm text-neutral-500 dark:text-neutral-400" data-aos="fade-up">Total: {{ $achievements->count() }}</div>
 
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
 
                     @forelse ($achievements as $index => $achievement)
-                    <div x-data="{ show: false }"
-                    x-init="setTimeout(() => show = true, {{ $index * 100 }})"
-                    x-show="show"
-                    x-transition:enter="transition ease-in duration-500"
-                    x-transition:enter-start="opacity-0 translate-y-4 scale-110"
-                    x-transition:enter-end="opacity-100 translate-y-0 scale-100"
-                    class="transform transition duration-[0.7s] hover:scale-105 hover:shadow-lg">
+                        <div x-data="{ show: false }"
+                        x-init="setTimeout(() => show = true, {{ $index * 100 }})"
+                        x-show="show"
+                        x-transition:enter="transition ease-in duration-500"
+                        x-transition:enter-start="opacity-0 translate-y-4 scale-110"
+                        x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                        class="transform transition duration-[0.7s] hover:scale-105 hover:shadow-lg " data-aos="zoom-in" data-aos-delay="100">
 
                             <a class="flex h-full" target="_blank" href="{{ $achievement->credential_url }}">
                                 <div
@@ -115,7 +116,7 @@
                             </a>
                         </div>
                     @empty
-                        <p class="text-neutral-500 dark:text-neutral-400">No achievements found.</p>
+                        <p class="text-neutral-500 dark:text-neutral-400" data-aos="zoom-in" data-aos-delay="100">No achievements found.</p>
                     @endforelse
 
                 </div>
